@@ -7,7 +7,7 @@ pipeline {
        {
        steps{
        echo "Building the project..."
-       bat "mvn clean"
+       sh "mvn clean"
        }
        } 
     
@@ -15,7 +15,7 @@ pipeline {
        {
         steps{
        echo "Testing the project..."
-       bat "mvn test"
+       sh "mvn test"
        }
        }
 
@@ -23,7 +23,7 @@ pipeline {
        {
         steps{
        echo "Compiling the project..."
-       bat "mvn compile"
+       sh "mvn compile"
        }
        }
 
