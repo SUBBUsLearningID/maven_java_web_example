@@ -7,6 +7,7 @@ pipeline {
        {
        steps{
        echo "Building the project..."
+       bat "mvn clean"
        }
        } 
     
@@ -14,6 +15,15 @@ pipeline {
        {
         steps{
        echo "Testing the project..."
+       bat "mvn test"
+       }
+       }
+
+       stage('Compile')
+       {
+        steps{
+       echo "Compiling the project..."
+       bat "mvn compile"
        }
        }
 
@@ -21,12 +31,6 @@ pipeline {
        {
         steps{
        echo "Deploying the project..."
-       }
-       }
-       stage('Release')
-       {
-       steps{
-       echo "Release the project..."
        }
        }   
        }
