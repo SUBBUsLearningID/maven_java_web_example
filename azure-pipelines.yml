@@ -20,13 +20,11 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: CopyFilesOverSSH@0
+- task: CopyFiles@2
   inputs:
-    sshEndpoint: 'tomcat-dev-connection'
-    sourceFolder: '$(Agent.BuildDirectory)/'
-    contents: '**/*.war'
-    targetFolder: '/opt/tomcat2/tomcat2/webapps/'
-    readyTimeout: '20000'
+    SourceFolder: '$(agent.builddirectory)'
+    Contents: '**/*.war'
+    TargetFolder: '/opt/tomcat2/tomcat2/webapps/'
     flattenFolders: true
 - task: SSH@0
   inputs:
